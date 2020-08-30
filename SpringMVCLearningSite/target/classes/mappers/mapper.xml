@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.exam.mvc01.Mapper">
+
+<insert id="boardWriteOk" parameterType="model.BoardTO">
+	insert into board
+	values (0, #{subject}, #{title}, #{link}, #{content}, now())
+</insert>
+
+<update id="updateSeq">
+	alter table board auto_increment = 1
+</update>
+
+<select id="boardList" parameterType="String" resultType="model.BoardTO">
+	select seq, subject, title
+	from board 
+	where subject like #{subject}
+	order by seq desc
+</select>
+
+<select id="boardView" parameterType="String" resultType="model.BoardTO">
+	select seq, subject, title, link, content, date_format(wdate, '%Y-%m-%d') wdate
+	from board
+	where seq = #{seq}
+</select>
+
+<select id="boardModify" parameterType="String" resultType="model.BoardTO">
+	select seq, subject, title, link, content, wdate
+	from board
+	where seq = #{seq}
+</select>
+
+<update id="boardModifyOk" parameterType="model.BoardTO">
+	update board set
+	subject = #{subject}, title = #{title}, link = #{link}, content = #{content}
+	where seq = #{seq}
+</update>
+
+<select id="boardDelete" parameterType="String" resultType="model.BoardTO">
+	select seq, title, subject
+	from board
+	where seq = #{seq}
+</select>
+
+<delete id="boardDeleteOk" parameterType="String">
+	delete from board
+	where seq = #{seq}
+</delete>
+
+<insert id="commentWriteOk" parameterType="model.CommentTO">
+	insert into comment values (0, #{seq}, #{writer}, #{content}, now())
+</insert>
+
+<update id="updateCseq">
+	alter table comment 
+	auto_increment = 1
+</update>
+
+<select id="commentList" parameterType="String" resultType="model.CommentTO">
+	select cseq, writer, content, cdate 
+	from comment
+	where seq = #{seq} 
+	order by cseq desc
+</select>
+
+<select id="commentModify" parameterType="String" resultType="model.BoardTO">
+	select seq, cseq, content
+	from comment
+	where seq = #{seq} and cseq = #{cseq}
+</select>
+
+<update id="commentModifyOk" parameterType="model.CommentTO">
+	update comment set 
+	content = #{content}
+	where cseq = #{cseq}
+</update>
+
+<delete id="commentDeleteOk" parameterType="model.CommentTO">
+	delete from comment
+	where cseq = #{cseq}
+</delete>
+
+</mapper>

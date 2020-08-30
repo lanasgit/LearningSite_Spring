@@ -1,0 +1,26 @@
+/* header */
+.title {color: black; font-weight: bold; text-align: center; font-size: 50px; cursor: pointer; font-family: '나눔고딕', 'Malgun Gothic', sans-serif;}
+.subtitle {color: black; text-align: center; font-family: '나눔고딕', 'Malgun Gothic', sans-serif;}
+.head {background-color: LightGray; padding: 20px;}
+
+/* view */
+iframe {width: 640px; height: 360px; border-width: thick; border-color: black;}
+
+/* content */
+.subject {font-family: '나눔고딕', 'Malgun Gothic', sans-serif; color: #5F5F5F; font-weight: bold; text-align: center; font-size: 40px; padding: 50px 15px 15px;}
+.wdate {font-family: '나눔고딕', 'Malgun Gothic', sans-serif; color: black; text-align: right; margin: 0px 100px;}
+.content {font-family: '나눔고딕', 'Malgun Gothic', sans-serif; font-size: 17px; margin: 10px 200px 30px 200px; line-height:22px;}
+.link {text-align: center;}
+
+/* link */
+a:link {color: black; text-decoration: none;}
+a:visited {color: black; text-decoration: none;}
+a:hover {font-weight: bold;}
+
+/* Button */
+.btn_write {display:inline-block; background:#5f5f5f; border:1px solid #404144; padding:6px 17px 7px 17px;}
+.btn_list {display:inline-block; background:#fcfcfc; border:1px solid #bcbcbc; padding:6px 17px 7px 17px;}
+.btn_comment {display:inline-block; background:#5f5f5f; border:1px solid #404144; padding:0px 17px 0px 17px; height:22px;}
+.btn_comment_write {display:inline-block; width:100px; height:62px; text-align:center; background:url('./images/btn_comment_bg.gif') no-repeat;}
+.btn_txt01 {color:#fff; font-weight:600;}
+.btn_txt02 {color:#1f1f1f; font-weight:600;}
